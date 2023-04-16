@@ -17,4 +17,4 @@ Resource for setting up S3 with API Gateway: https://repost.aws/knowledge-center
 3. Setup a Glue job that reads the JSON file and flattens it into a columnar format (CSV) and then puts the converted file into the destination S3 bucket (see "glue_code_pyspark.txt" for the code).
  
  
- 
+ <img width="563" alt="image" src="https://user-images.githubusercontent.com/56769902/232322857-7d1af623-7954-4af4-bee4-36d22e93c0e6.png">
