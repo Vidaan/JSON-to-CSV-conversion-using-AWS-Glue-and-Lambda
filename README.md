@@ -8,6 +8,7 @@ It is a 2 part setup where we upload a JSON file into S3 through API Gateway and
 4. Pass the URL for the API Gateway, that points to the Lambda function, in Postman and set the method as POST.
 
 Resource for Postman: https://upload.io/blog/postman-upload-file-cheat-sheet/
+
 Resource for setting up S3 with API Gateway: https://repost.aws/knowledge-center/api-gateway-upload-image-s3
 
 ## Part-2: Flattening the JSON document into a CSV.
