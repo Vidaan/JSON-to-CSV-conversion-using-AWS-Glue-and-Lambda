@@ -1,0 +1,7 @@
+source s3 bucket : vz-bucket-trial
+destination s3 bucket : vz-destination-bucket
+lambda role with all required access : lambdaapis3json
+lambda function for API call : s3uploadfromapi
+lambda function for JSON to CSV : jsonflattener
+glue job name : jsonflattenerpipeline
+glue job role : gluerolejson

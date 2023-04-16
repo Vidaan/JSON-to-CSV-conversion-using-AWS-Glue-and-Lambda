@@ -1,0 +1,34 @@
+import boto3
+import json
+
+def lambda_handler(event, context):
+    # Get the bucket name and file name from the event
+    bucket_name = event['bucket_name']
+    file_name = event['file_name']
+
+    # Create an S3 client
+    s3 = boto3.client('s3')
+
+    # Download the JSON file from S3
+    file_obj = s3.get_object(Bucket=bucket_name, Key=file_name)
+    file_content = file_obj['Body'].read().decode('utf-8')
+
+    # Split the JSON file content by line
+    lines = file_content.split('\n')
+
+    # Remove the first 4 lines and last line
+    lines = lines[4:-1]
+
+    # Join the remaining lines back into a single string
+    modified_file_content = '\n'.join(lines)
+
+    # Load the modified JSON data
+    json_data = json.loads(modified_file_content)
+
+    # Upload the modified JSON file back to S3
+    s3.put_object(Bucket=bucket_name, Key=file_name, Body=json.dumps(json_data))
+
+    return {
+        'statusCode': 200,
+        'body': 'JSON file updated successfully!'
+    }
